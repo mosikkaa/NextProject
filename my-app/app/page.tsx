@@ -1,11 +1,12 @@
-import Land from "@/app/components/molecules/Land/Land";
+import Home from "@/app/components/organisms/Home/Home";
 
-export default function Home() {
-  return (
-    <div className="flex items-center justify-center bg-white font-sans">
-      <main className="flex h-full w-full flex items-center justify-between bg-white">
-           <Land/>
-      </main>
-    </div>
-  );
+
+const Page = () => {
+    return (
+        <div>
+            <Home />
+        </div>
+    )
 }
+
+export default Page
