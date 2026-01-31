@@ -1,12 +1,19 @@
+'use client'
+import { AnimatePresence, motion } from "motion/react"
 import Button from '../../atoms/Button/Button'
 import ProjectCard from '../../atoms/ProjectCard/ProjectCard'
 import Solutions from '../../atoms/Solutions/Solutions'
-import architecture from '../../../../public/architecture.jpg';
+import architecture from '../../../../public/architecture.jpg'
+import architecture2 from '../../../../public/architecture2.jpg'
 import businessConsulting from '../../../../public/businessConsulting.jpg'
+import businessConsulting2 from '../../../../public/businessConsulting2.jpg'
 import hikingGears from '../../../../public/hikingGears.jpg'
 import outdoor from '../../../../public/outdoor.jpg'
+import { useState } from 'react'
 
 const LatestProjects = () => {
+    const [showMore, setShowMore] = useState(false);
+
     return (
         <div className='select-none bg-black flex flex-col items-center justify-center gap-20'>
             <div className='h-192 w-285 flex flex-col justify-center gap-12'>
@@ -50,8 +57,38 @@ const LatestProjects = () => {
                         type='BRAND IDENTITY'
                         section='OUTDOOR'
                     />
+                    <AnimatePresence>
+                        {showMore && (
+                            <motion.div
+                                key="extra-projects"
+                                initial={{ opacity: 0, y: -40 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -40 }}
+                                transition={{ duration: 0.5, ease: 'easeInOut' }}
+                                className="flex flex-wrap justify-between w-full"
+                            >
+                                <ProjectCard
+                                    img={architecture2}
+                                    num={"05"}
+                                    title='MAQUILADORA ARCHITECT'
+                                    description='When art meet technology and nature, Maquiladora studio revamp their online presence.'
+                                    type='WEB DESIGN / WEB DEVELOPMENT'
+                                    section='ARCHITECTURE'
+                                />
+                                <ProjectCard
+                                    img={businessConsulting2}
+                                    num={"06"}
+                                    title='CODEX CONSULTING'
+                                    description='Codex brings new perspective in business consulting paradigm with their new identity.'
+                                    type='BRAND IDENTITY'
+                                    section='BUSINESS CONSULTING'
+                                />
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+
                     <div className='mb-29 w-full'>
-                        <Button buttonText='MORE WORKS' />
+                        <Button buttonText={showMore ? 'SHOW LESS' : 'MORE WORKS'} onClick={() => setShowMore(prev => !prev)} />
                     </div>
                 </div>
             </div>
