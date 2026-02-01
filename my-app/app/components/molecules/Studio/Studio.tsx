@@ -25,7 +25,7 @@ const Studio = () => {
                 {service.id}
               </span>
               <h3
-                className={`text-[32px] font-medium tracking-[4px]  uppercase transition-colors duration-300  hover:text-[#E5e548]`}
+                className={`text-[32px] cursor-pointer font-medium tracking-[4px]  uppercase transition-colors duration-300  hover:text-[#E5e548]`}
               >
                 {service.title}
               </h3>
@@ -35,12 +35,12 @@ const Studio = () => {
       </div>
 
       {/* Right Content - View Works / Discover */}
-      <div className="md:relative md:block hidden shrink-0 flex items-center justify-center">
+      <div className="md:relative md:flex hidden flex-1 items-center justify-center max-w-[290px]">
         {/* Image / Mask Group (290x392) */}
         <div
-          className="relative w-[290px] h-[392px] bg-[#626262] overflow-hidden"
+          className="relative w-full aspect-290/392 bg-[#626262] overflow-hidden"
           style={{
-            clipPath: "polygon(70px 0, 100% 0, 100% 100%, 0 100%, 0 70px)",
+            clipPath: "polygon(24% 0, 100% 0, 100% 100%, 0 100%, 0 18%)",
           }}
         >
           {/* Overlay or BG */}
@@ -48,8 +48,8 @@ const Studio = () => {
         </div>
 
         {/* Discover Button (108x108) */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#E5E548] w-[108px] h-[108px] rounded-full flex items-center justify-center p-4 text-center cursor-pointer hover:scale-110 transition-transform duration-300 shadow-xl">
-          <span className="text-black text-[12px] font-bold leading-none uppercase tracking-[0.016em]">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#E5E548] w-[25%] aspect-square min-w-[80px] rounded-full flex items-center justify-center p-4 text-center cursor-pointer hover:scale-110 transition-transform duration-300 shadow-xl">
+          <span className="text-black text-[clamp(8px,1vw,12px)] font-bold leading-none uppercase tracking-[0.016em]">
             DISCOVER
           </span>
         </div>
