@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: 'Supreme';
-  src: url('../public/fonts/Supreme-Regular.otf');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+    font-family: 'Supreme';
+    src: url('../public/fonts/Supreme-Regular.otf');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
 }
 
 body {
-  font-family: 'Supreme';
+    font-family: 'Supreme';
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
 }

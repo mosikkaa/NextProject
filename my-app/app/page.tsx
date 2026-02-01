@@ -1,12 +1,12 @@
-import React from 'react'
-import Home from './components/organisms/Home/Home'
+import Home from "@/app/components/organisms/Home/Home";
 
-const page = () => {
-  return (
-    <div>
-      <Home />
-    </div>
-  )
+
+const Page = () => {
+    return (
+        <div>
+            <Home />
+        </div>
+    )
 }
 
-export default page
+export default Page
