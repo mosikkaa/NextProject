@@ -14,19 +14,19 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ title, description, type, section, img, num }: ProjectCardProps) => {
     return (
-        <div className="w-137.5 mb-30 cursor-pointer group">
-            <div className="w-137.5 h-102 mb-8 relative overflow-hidden">
+        <div className="w-67.25 lg:w-137.5 mb-8 lg:mb-30 cursor-pointer group">
+            <div className="w-67.25 lg:w-137.5 h-94 lg:h-102 mb-8 relative overflow-hidden">
                 <Image src={cardTriangle} alt="card triangle" width={70} height={70} className="absolute z-2" />
-                <Image src={img} alt='card image' className="absolute z-1 object-cover" />
+                <Image src={img} alt='card image' className="absolute z-1 object-cover h-94 lg:h-full" />
                 <p className="w-49.75 absolute z-2 text-transparent font-normal text-[168px] rotate-270 [-webkit-text-stroke:1px_#dadada] -bottom-1.75 -left-0.5">{num}</p>
-                <div className="absolute z-1 flex bottom-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-in-out">
+                <div className="hidden lg:flex absolute z-1 bottom-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-in-out">
                     <div className="bg-[#E5E548] h-32 w-105.75"></div>
                     <div className="bg-[#E5E548]/30 w-32 h-32 flex justify-center">
                         <Image src={arrow} alt="arrow" />
                     </div>
                 </div>
             </div>
-            <div className="w-110 ml-10">
+            <div className="w-67.25 lg:w-110 ml-0 lg:ml-10">
                 <h1 className="text-[#E5E548] mb-4 text-[24px] leading-[160%] tracking-[4px]">{title}</h1>
                 <p className="text-[#ffffff] mb-4 text-[18px]">{description}</p>
                 <p className="text-[#ffffff] mb-2 opacity-40 text-[14px] tracking-[1px]">{type}</p>
