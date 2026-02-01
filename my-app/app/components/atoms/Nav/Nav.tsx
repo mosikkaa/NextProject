@@ -10,8 +10,7 @@ const Nav = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const weekday:string = dayData()
-
-
+    
      return(
        <div className='w-full flex items-center justify-between px-[9%] sm:px-20 md:px-17 lg:px-28 xl:px-32 2xl:px-36 py-12 h-12 fixed bg-transparent z-99 '>
            <h1 className='font-[Supreme] font-extrabold text-[24px] leading-[100%] tracking-[-0.4px] align-middle text-[#FFFFFF] cursor-pointer'>NEURO.</h1>
