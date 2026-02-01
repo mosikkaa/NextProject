@@ -3,9 +3,9 @@ import Image from "next/image";
 
 const Textarea = () => {
     return (
-        <div className='sm:relative z-2 absolute top-[93%] sm:bottom-0  sm:top-0 justify-center gap-2 flex flex-col '>
+        <div className='sm:relative z-2 absolute top-[93%] sm:bottom-0  sm:top-0 justify-center gap-9 sm:gap-1 flex flex-col '>
             <div>
-               <h1 className='font-[Supreme] text-white font-bold  2xl:text-[96px] xl:text-[86px] md:text-[78px] sm:w-full w-[60px] sm:text-[60px] text-[50px] leading-[100%] tracking-[-2px] align-middle uppercase'>CREATIVE TEAM</h1>
+               <h1 className='font-[Supreme] text-white font-bold  2xl:text-[96px] xl:text-[86px] md:text-[78px] sm:w-full w-[60px] sm:text-[60px] text-[50px] leading-[100%] tracking-[-2px] uppercase'>CREATIVE TEAM</h1>
                <h1 className="font-[Supreme] font-bold  2xl:text-[96px] xl:text-[86px] md:text-[78px]  sm:text-[60px] text-[50px]  leading-[100%] tracking-[-2px] align-middle uppercase text-[#E5E548]">
                   <span className="line-through decoration-[#E5E548] decoration-[1.6px] sm:inline-block hidden text-transparent select-none">ai.ii</span>
                   <span className="line-through text-end decoration-[#E5E548] decoration-[1.6px]">FOR FUTURE'S</span>
