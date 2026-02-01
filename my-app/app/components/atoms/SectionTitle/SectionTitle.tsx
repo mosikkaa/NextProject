@@ -7,18 +7,23 @@ interface SectionTitleProps {
 
 const SectionTitle: React.FC<SectionTitleProps> = ({ title, subtitle }) => {
   return (
-    <div className="relative mb-16 w-full flex flex-col">
-      <h2 className="text-[56px] md:text-[64px] font-black text-transparent leading-[0.8] [text-stroke:1px_rgba(255,255,255,0.3)] [-webkit-text-stroke:1px_rgba(255,255,255,0.3)]">
+    <div className="relative mb-20 w-full flex flex-col font-supreme">
+      {/* Title (e.g., STUDIO / LATEST) */}
+      <h2 className="md:text-[64px] text-[56px] font-bold leading-none text-transparent [text-stroke:2px_#666666] [-webkit-text-stroke:2px_#666666] uppercase">
         {title}
       </h2>
-      <div className="relative w-fit flex items-center mt-[-10px]">
-        <div className="absolute left-0 w-full h-[3px] bg-[#E5E548] top-[50%] md:top-[50%]" />
+
+      {/* Subtitle and Line Container */}
+      <div className="relative flex flex-col mt-[-10px]">
+        {/* Line - positioned absolutely to match Figma's 'top: 172px' feel relative to text */}
+        <div className="absolute left-0 top-[28px] w-[551px] h-[1.6px] bg-[#E5E548]" />
+
+        {/* Subtitle */}
         <div className="flex items-center relative z-10">
-          <div className="w-20 md:w-[159px] shrink-0" />
-          <span className="text-[56px] md:text-[64px] font-black tracking-wider text-[#E5E548] px-2 whitespace-nowrap">
+          <div className="w-[159px] shrink-0" />
+          <span className="text-[64px] font-bold leading-none text-[#E5E548] uppercase whitespace-nowrap">
             {subtitle}
           </span>
-          <div className="w-8 md:w-[58px] shrink-0" />
         </div>
       </div>
     </div>

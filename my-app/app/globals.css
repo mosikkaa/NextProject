@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --font-supreme: "Supreme", sans-serif;
+}
+
 /* :root {
   --background: #ffffff;
   --foreground: #171717;
