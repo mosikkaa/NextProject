@@ -7,10 +7,10 @@ import LeftMenu from "@/app/components/atoms/LeftMenu/LeftMenu";
 const Home = () => {
     return (
         <div className='flex flex-col items-center'>
-            <LeftMenu/>
-            <Nav/>
-            <Land/>
-            <LatestProjects></LatestProjects>
+            <LeftMenu />
+            <Nav />
+            <Land />
+            <LatestProjects />
         </div>
     )
 }
