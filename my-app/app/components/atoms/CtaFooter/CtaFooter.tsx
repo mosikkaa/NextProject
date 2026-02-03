@@ -3,7 +3,9 @@ import FooterColumn from "../FooterColumn/FooterColumn"
 const CtaFooter = () => {
   return (
     <footer className="grid grid-cols-5 gap-10 mt-30">
-      <div className="font-bold">NEURO.</div>
+      <div className="font-[Supreme] font-extrabold text-[24px] leading-[100%] tracking-[-0.4px] align-middle">
+  NEURO.
+</div>
 
       <FooterColumn
         title="NEURO IDEAS HQ"
