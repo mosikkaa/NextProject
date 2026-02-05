@@ -11,7 +11,7 @@ import hikingGears from '../../../../public/hikingGears.jpg'
 import outdoor from '../../../../public/outdoor.jpg'
 import { useState } from 'react'
 
-const LatestProjects = () => {
+const LatestProjects = ({sectionRef}:any) => {
     const [showMore, setShowMore] = useState(false);
 
     const extraProjects = [
@@ -26,7 +26,7 @@ const LatestProjects = () => {
                 <Button buttonText="READ MORE" />
             </div>
 
-            <div className='w-full pl-6 lg:pl-0 lg:w-285'>
+            <div ref={sectionRef} className='w-full  pl-6 lg:pl-0 lg:w-285'>
                 <p className='mb-30.25 tracking-wider [text-shadow:-1px_-1px_0_#666666,1px_-1px_0_#666666,-1px_1px_0_#666666,1px_1px_0_#666666,0_-1px_0_#666666,0_1px_0_#666666,-1px_0_0_#666666,1px_0_0_#666666] leading-[100%] w-97.5 lg:w-130 font-bold text-[56px] lg:text-[64px]'>LATEST <span className='text-shadow-none line-through decoration-3 text-[#E5E548] [-webkit-text-stroke:0px]'><span className='text-black'>sss</span>PROJECTS</span></p>
 
                 <div className='mb-6 lg:mb-0 flex lg:flex-wrap lg:justify-between gap-6 overflow-x-auto lg:overflow-visible [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-zinc-900 [&::-webkit-scrollbar-track]:border-y [&::-webkit-scrollbar-track]:bg-clip-padding [&::-webkit-scrollbar-thumb]:bg-white'>
