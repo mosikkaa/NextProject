@@ -1,5 +1,4 @@
 
-
 export const dayData:() => string = (): string => {
     const daysOfWeek: string[] = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
     const today = new Date();

@@ -1,11 +1,10 @@
 'use client'
-import Image from "next/image";
 import {useState} from "react";
 
 
 const Video = () => {
 
-    const [play, setPlay] = useState(false);
+    const [play, setPlay] = useState<boolean>(false);
 
      return(
        <div className='absolute sm:block hidden bottom-0 right-0'>
