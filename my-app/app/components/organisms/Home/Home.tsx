@@ -5,6 +5,7 @@ import Nav from "@/app/components/atoms/Nav/Nav";
 import LeftMenu from "@/app/components/atoms/LeftMenu/LeftMenu";
 import {useRef, useState} from "react";
 import Menu from "@/app/components/atoms/Menu/Menu";
+import CtaSection from "../../molecules/CtaSection/CtaSection";
 
 
 const Home = () => {
@@ -19,6 +20,7 @@ const Home = () => {
             <Menu isOpen={isOpen}/>
             <Land scrollTo={latestRef}/>
             <LatestProjects sectionRef={latestRef}/>
+            <CtaSection/>
         </div>
     )
 }
