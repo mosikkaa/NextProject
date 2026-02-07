@@ -1,24 +1,23 @@
 'use client'
-import Image from "next/image";
 import {useState} from "react";
 
 
 const Video = () => {
 
-    const [play, setPlay] = useState(false);
+    const [play, setPlay] = useState<boolean>(false);
 
      return(
        <div className='absolute sm:block hidden bottom-0 right-0'>
 
-           <div className='flex-col sm:w-[40%] lg:w-[50%] items-center bottom-22 sm:left-55 lg:left-50 justify-center absolute z-12'>
+           <div className='flex-col sm:w-[45%] lg:w-[50%] items-center bottom-22 sm:left-55 lg:left-50 justify-center absolute z-12'>
                <p className='font-[Supreme] text-[#FFFFFF] font-normal text-[14px] leading-[160%] tracking-[1px] text-end'>0:32</p>
-               <div className="relative w-full sm:h-[120px]  lg:h-[160px] aspect-video overflow-hidden bg-[url('/Preview.jpg')]">
+               <div className="relative w-full sm:h-[140px]  lg:h-[160px] aspect-video overflow-hidden bg-[url('/Preview.jpg')]">
                    {play ? (<video autoPlay src="/Video.mp4" poster="/Preview.jpg" className="w-full h-full object-cover"></video>) : (<button onClick={() => setPlay(true)} className="absolute cursor-pointer bottom-6 left-6 z-10"><img src="/Play.svg" alt="Play" className="w-12 h-12 hover:scale-110 transition"/> </button>)}
                </div>
                <p className='font-[Supreme] relative z-0 text-[#FFFFFF] font-normal text-[14px] leading-[160%] tracking-[1px] align-middle'>PLAY REELS</p>
            </div>
 
-           <img className='sm:block hidden relative  opacity-50 z-0' src="/LIPBALS.svg" alt="Arrow down"/>
+           <img className='sm:block hidden relative  opacity-50 z-0' src="/LIPBALS.svg" alt="Lipbals"/>
        </div>
      );
 };

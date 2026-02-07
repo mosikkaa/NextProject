@@ -1,28 +1,28 @@
 'use client'
 import Image from "next/image";
-import {useState} from "react";
 import * as motion from "motion/react-client";
+import MenuButton from "@/app/components/atoms/MenuButton/MenuButton";
+import useHide from "@/app/hooks/useHide";
 
 
-const LeftMenu = () => {
 
-    const [isOpen, setIsOpen] = useState(false);
+const LeftMenu = ({isOpen,setIsOpen}:any) => {
 
-     return(
-       <div className='h-screen sm:flex flex-col justify-between bg-black/20 py-6 px-2 items-center hidden w-[80px] z-99 fixed left-0'>
-           <div>
-               <Image className='' src="/LogoN1.svg" width={40} height={40} alt="Logo"/>
-           </div>
+    const show:boolean = useHide()
 
-           <motion.div className="sm:block hidden cursor-pointer" onClick={() => setIsOpen(!isOpen)} animate={{ rotate: isOpen ? 90 : 0 }}>
-               <Image className='rotate-90' src="/Menu.svg" width={32} height={32} alt="Menu" />
-           </motion.div>
+    return (
+        <motion.div  animate={{x: show ? 0 : '-100%', opacity: show ? 1 : 0.96,}} transition={{type: 'spring', stiffness: 200, damping: 25,}} className={`h-screen sm:flex flex-col justify-between  ${isOpen ? 'bg-transparent' : 'bg-black/20'}  pt-6 pb-11 px-2 items-center hidden w-[80px] z-99 fixed left-0`} style={{zIndex:9999}}>
+            <div>
+                <Image className='' src="/LogoN1.svg" width={40} height={40} alt="Logo"/>
+            </div>
 
-           <div>
-               <Image className='' src="/Pagination.svg" width={80} height={80} alt="Logo"/>
-           </div>
-       </div>
-     );
+            <MenuButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}/>
+
+            <div>
+                <Image className='' src='/Pagination.svg' width={80} height={80} alt="Logo"/>
+            </div>
+        </motion.div>
+    );
 };
 
 export default LeftMenu
