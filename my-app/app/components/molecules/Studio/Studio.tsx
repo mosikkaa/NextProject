@@ -11,9 +11,10 @@ const services = [
 
 const Studio = () => {
   return (
-    <section className="bg-black text-white pr-0 md:pr-20 pl-6 md:pl-[150px] flex flex-col md:flex-row items-center justify-between gap-10 font-supreme">
+    <section className="bg-black max-w-[1440px] mb-[76px] text-white w-full flex flex-col md:flex-row items-center justify-between gap-10 font-supreme pl-[9%] sm:pl-28 sm:pr-20 xl:pl-32 xl:pr-21">
       {/* Left Content */}
       <div className="flex-1 w-full max-w-[770px]">
+        {" "}
         <SectionTitle title="STUDIO" subtitle="SERVICES" />
         <div className="flex flex-col gap-10">
           {services.map((service) => (

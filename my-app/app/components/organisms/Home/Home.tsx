@@ -1,28 +1,30 @@
-'use client'
+"use client";
 import Land from "@/app/components/molecules/Land/Land";
 import LatestProjects from "@/app/components/molecules/LatestProjects/LatestProjects";
 import Nav from "@/app/components/atoms/Nav/Nav";
 import LeftMenu from "@/app/components/atoms/LeftMenu/LeftMenu";
-import {useRef, useState} from "react";
+import { useRef, useState } from "react";
 import Menu from "@/app/components/atoms/Menu/Menu";
 import CtaSection from "../../molecules/CtaSection/CtaSection";
-
+import Studio from "../../molecules/Studio/Studio";
+import Latest from "../../molecules/Latest/Latest";
 
 const Home = () => {
+  const latestRef = useRef<null>(null);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    const latestRef= useRef<null>(null);
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+  return (
+    <div className="flex flex-col items-center w-full  m-auto bg-black">
+      <LeftMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+      <Nav isOpen={isOpen} setIsOpen={setIsOpen} />
+      <Menu isOpen={isOpen} />
+      <Land scrollTo={latestRef} />
+      <LatestProjects sectionRef={latestRef} />
+      <Studio />
+      <Latest />
+      <CtaSection />
+    </div>
+  );
+};
 
-    return (
-        <div className='flex flex-col items-center'>
-            <LeftMenu isOpen={isOpen} setIsOpen={setIsOpen}/>
-            <Nav isOpen={isOpen} setIsOpen={setIsOpen}/>
-            <Menu isOpen={isOpen}/>
-            <Land scrollTo={latestRef}/>
-            <LatestProjects sectionRef={latestRef}/>
-            <CtaSection/>
-        </div>
-    )
-}
-
-export default Home
+export default Home;
