@@ -12,7 +12,7 @@ const Menu = ({ isOpen }: any) => {
       animate={isOpen ? "open" : "closed"}
       variants={getMenuVariants()}
       transition={{ duration: 0.6, ease: "easeInOut" }}
-      className={`w-full fixed z-99 flex items-end sm:items-center h-full pl-[9%] pr-[9%] sm:pl-28 sm:pr-28 xl:pl-32 xl:pr-21 bg-black`}
+      className={`w-full fixed z-99 flex items-end sm:items-center h-dvh pl-[9%] pr-[9%] sm:pl-28 sm:pr-28 xl:pl-32 xl:pr-21 bg-black`}
     >
       <div className="sm:flex-row flex-col flex sm:gap-0 gap-24 sm:pt-0 sm:pb-0 pt-[35%] pb-[15%] justify-between w-full items-center">
         <ul className="sm:w-6/13 md:w-5/9 lg:w-3/6 w-full">
