@@ -10,12 +10,7 @@ const Nav = ({ isOpen, setIsOpen }: any) => {
   const weekday: string = dayData();
 
   return (
-    <motion.nav
-      animate={{ y: show ? 0 : "-100%", opacity: show ? 1 : 0.96 }}
-      transition={{ type: "spring", stiffness: 200, damping: 25 }}
-      className="w-full bg-transparent   fixed "
-      style={{ zIndex: 9999 }}
-    >
+    <motion.nav animate={{ y: show ? 0 : "-100%", opacity: show ? 1 : 0.96 }} transition={{ type: "spring", stiffness: 200, damping: 25 }} className="w-full bg-transparent   fixed " style={{ zIndex: 9999 }}>
       <div className="max-w-[1440px] flex justify-between items-center w-full m-auto pl-[9%] pr-[9%] sm:pl-28 sm:pr-20 lg:pr-20 xl:pl-32 xl:pr-21  py-12 h-12 ">
         <h1 className="font-[Supreme] font-extrabold text-[24px] leading-[100%] tracking-[-0.4px] align-middle text-[#FFFFFF] cursor-pointer">
           NEURO.
@@ -29,11 +24,7 @@ const Nav = ({ isOpen, setIsOpen }: any) => {
             {weekday}
           </p>
           <Image src="/Toogle.svg" width={40} height={24} alt="Toggle Button" />
-          <motion.div
-            className="sm:hidden cursor-pointer"
-            onClick={() => setIsOpen(!isOpen)}
-            animate={{ rotate: isOpen ? 90 : 0 }}
-          >
+          <motion.div className="sm:hidden cursor-pointer" onClick={() => setIsOpen(!isOpen)} animate={{ rotate: isOpen ? 90 : 0 }}>
             <MenuButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
           </motion.div>
         </div>

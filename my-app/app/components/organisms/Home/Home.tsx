@@ -22,7 +22,7 @@ const Home = () => {
       <LatestProjects sectionRef={latestRef} />
       <Studio />
       <Latest />
-      {/* <CtaSection /> */}
+      <CtaSection />
     </div>
   );
 };
