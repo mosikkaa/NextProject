@@ -1,0 +1,28 @@
+'use client'
+import Land from "@/app/components/molecules/Land/Land";
+import LatestProjects from "@/app/components/molecules/LatestProjects/LatestProjects";
+import Nav from "@/app/components/atoms/Nav/Nav";
+import LeftMenu from "@/app/components/atoms/LeftMenu/LeftMenu";
+import {useRef, useState} from "react";
+import Menu from "@/app/components/atoms/Menu/Menu";
+import CtaSection from "../../molecules/CtaSection/CtaSection";
+
+
+const Home = () => {
+
+    const latestRef= useRef<null>(null);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    return (
+        <div className='flex flex-col items-center'>
+            <LeftMenu isOpen={isOpen} setIsOpen={setIsOpen}/>
+            <Nav isOpen={isOpen} setIsOpen={setIsOpen}/>
+            <Menu isOpen={isOpen}/>
+            <Land scrollTo={latestRef}/>
+            <LatestProjects sectionRef={latestRef}/>
+            <CtaSection/>
+        </div>
+    )
+}
+
+export default Home
