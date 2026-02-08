@@ -8,7 +8,7 @@ const Latest = () => {
 
       <div className="pr-[9%] w-full">
         {/* Main Content Area */}
-        <div className="flex flex-col md:pb-20 pb-8 md:flex-row md:gap-[110px] gap-8 items-end justify-start mt-10">
+        <div className="flex flex-col md:pb-20 pb-8 md:flex-row lg:gap-[110px] md:gap-[20px] gap-8 items-end justify-start mt-10">
           {/* Left: Card (440x408) */}
           <div
             className="relative w-full md:w-[440px] h-[408px] bg-[#626262] shrink-0 hover:bg-[#C4C4C4]"
@@ -26,10 +26,10 @@ const Latest = () => {
           </div>
           {/* Right: Text Content */}
           <div className="flex flex-col gap-4 max-w-[621px] pb-5">
-            <h3 className="text-[24px] md:text-[32px] font-medium tracking-[2px] leading-[120%] text-[#E5E548] uppercase">
+            <h3 className="text-[24px] lg:text-[32px] font-medium tracking-[2px] leading-[120%] text-[#E5E548] uppercase">
               RAUNG PACK REBRANDING, BEYOND THE OFFICE, OUT OF THE LANDFILL
             </h3>
-            <p className="text-white text-[18px] md:text-[20px] font-light leading-[160%]">
+            <p className="text-white text-[18px] lg:text-[20px] font-light leading-[160%]">
               Our collaborations with latest outdoors gear for their website.
             </p>
             <span className="text-white/40 text-[14px] font-normal leading-[160%] tracking-[1px] uppercase md:hidden block">
