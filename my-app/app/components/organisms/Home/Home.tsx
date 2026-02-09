@@ -27,7 +27,7 @@ const Home = () => {
     <div className="flex flex-col items-center w-full  m-auto bg-black">
       <LeftMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       <Nav isOpen={isOpen} setIsOpen={setIsOpen} />
-      <Menu isOpen={isOpen} scrollToSection={scrollToSection} refs={{ homeRef, latestProjectsRef, studioRef, latestRef, ctaRef }} />
+      <Menu isOpen={isOpen} scrollToSection={scrollToSection} refs={{homeRef,latestProjectsRef,studioRef,latestRef,ctaRef}} />
       <Land sectionRef={homeRef} scrollTo={latestProjectsRef} />
       <LatestProjects sectionRef={latestProjectsRef} />
       <Studio sectionRef={studioRef}/>
