@@ -1,9 +1,10 @@
 import react from "react";
 import Image from "next/image";
+import { motion } from "motion/react";
 
 const Textarea = () => {
   return (
-    <div className="sm:relative z-2 absolute top-[93%] sm:bottom-0  sm:top-0 justify-center gap-3 sm:gap-1 flex flex-col ">
+    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, ease: "easeOut" }}  className="sm:relative z-2 absolute top-[93%] sm:bottom-0  sm:top-0 justify-center gap-3 sm:gap-1 flex flex-col ">
       <div>
         <h1 className="font-[Supreme] text-white font-bold  2xl:text-[106px] xl:text-[86px] lg:text-[86px] md:text-[68px] sm:w-full w-[60px] sm:text-[52px] text-[50px] leading-[100%] tracking-[-2px] uppercase">CREATIVE TEAM</h1>
         <h1 className="font-[Supreme] font-bold  2xl:text-[106px] xl:text-[86px] lg:text-[86px] md:text-[68px]  sm:text-[52px] text-[50px]  leading-[100%] tracking-[-2px] align-middle uppercase text-[#E5E548]">
@@ -23,7 +24,7 @@ const Textarea = () => {
           <Image className="hidden sm:block" src="/Discover.svg" fill alt="Discover"/>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

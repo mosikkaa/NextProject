@@ -1,6 +1,8 @@
+import { motion } from "motion/react"
+
 const CtaTitle = () => {
   return ( 
-    <h1 className="font-[Supreme] font-bold uppercase text-left leading-[100%] text-[40px] sm:text-[56px] lg:text-[80px]">
+    <motion.h1 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, ease: "easeOut" }}  className="font-[Supreme] font-bold uppercase text-left leading-[100%] text-[40px] sm:text-[56px] lg:text-[80px]">
 
       <span className="block text-transparent [-webkit-text-stroke:2px_black] font-normal">
         <span className="block sm:inline">WE ALWAYS</span>
@@ -18,7 +20,7 @@ const CtaTitle = () => {
           <span className="absolute left-1/2 top-1/2 w-[180px] sm:w-[260px] lg:w-[400px] h-[2px] bg-black -translate-x-1/2 -translate-y-1/2" />
         </span>
       </div>
-    </h1>
+    </motion.h1>
   )
 }
 

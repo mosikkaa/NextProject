@@ -94,12 +94,12 @@ const LatestProjects = ({ sectionRef }: any) => {
       </div>
 
       <div ref={sectionRef} className="w-full  ">
-        <div className="mb-30.25 tracking-wider [text-shadow:-1px_-1px_0_#666666,1px_-1px_0_#666666,-1px_1px_0_#666666,1px_1px_0_#666666,0_-1px_0_#666666,0_1px_0_#666666,-1px_0_0_#666666,1px_0_0_#666666] leading-[100%]  sm:w-97.5 lg:w-130 font-bold text-[56px] lg:text-[64px]">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, ease: "easeOut" }}  className="mb-30.25 tracking-wider [text-shadow:-1px_-1px_0_#666666,1px_-1px_0_#666666,-1px_1px_0_#666666,1px_1px_0_#666666,0_-1px_0_#666666,0_1px_0_#666666,-1px_0_0_#666666,1px_0_0_#666666] leading-[100%]  sm:w-97.5 lg:w-130 font-bold text-[56px] lg:text-[64px]">
           LATEST{" "}
           <span className="text-shadow-none line-through decoration-3 text-[#E5E548] [-webkit-text-stroke:0px]">
             <span className="text-black">sss</span>PROJECTS
           </span>
-        </div>
+        </motion.div>
 
         <div className="mb-6 xl:hidden flex gap-6 overflow-x-auto [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-zinc-900 [&::-webkit-scrollbar-thumb]:bg-white">
           {allProjects.map((p, i) => (
@@ -146,7 +146,7 @@ const LatestProjects = ({ sectionRef }: any) => {
             )}
           </AnimatePresence>
 
-          <div className="flex mb-29 w-full items-center justify-between">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, ease: "easeOut" }}  className="flex mb-29 w-full items-center justify-between">
             <Button
               buttonText={showMore ? "SHOW LESS" : "MORE WORKS"}
               onClick={() => {
@@ -169,7 +169,7 @@ const LatestProjects = ({ sectionRef }: any) => {
                 ))}
               </div>
             )}
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

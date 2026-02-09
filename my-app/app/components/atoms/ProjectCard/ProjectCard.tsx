@@ -2,6 +2,7 @@ import Image, { StaticImageData } from "next/image";
 import cardTriangle from "../../../../public/cardTriangle.svg";
 import ellipse from "../../../../public/ellipse.svg";
 import arrow from "../../../../public/arrow.svg";
+import { motion } from "motion/react";
 
 interface ProjectCardProps {
   title: string;
@@ -21,7 +22,7 @@ const ProjectCard = ({
   num,
 }: ProjectCardProps) => {
   return (
-    <div className="w-67.25 lg:w-137.5 mb-8 lg:mb-30 cursor-pointer group">
+    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, ease: "easeOut" }}  className="w-67.25 lg:w-137.5 mb-8 lg:mb-30 cursor-pointer group">
       <div className="w-67.25 lg:w-137.5 h-94 lg:h-102 mb-8 relative overflow-hidden">
         <Image
           src={cardTriangle}
@@ -58,7 +59,7 @@ const ProjectCard = ({
           <p className="text-[#ffffff] text-[14px] tracking-[1px]">{section}</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

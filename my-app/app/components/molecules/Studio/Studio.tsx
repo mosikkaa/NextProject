@@ -1,5 +1,6 @@
 import React from "react";
 import SectionTitle from "../../atoms/SectionTitle/SectionTitle";
+import { motion } from "motion/react";
 
 const services = [
   { id: "01", title: "WEBSITE" },
@@ -12,14 +13,13 @@ const services = [
 const Studio = () => {
   return (
     <section className="bg-black max-w-[1440px] mb-[76px] text-white w-full flex flex-col md:flex-row items-center justify-between gap-10 font-supreme pl-[9%] sm:pl-28 sm:pr-20 xl:pl-32 xl:pr-21">
-      {/* Left Content */}
       <div className="flex-1 w-full max-w-[770px]">
         {" "}
         <SectionTitle title="STUDIO" subtitle="SERVICES" />
         <div className="flex flex-col gap-10">
           {services.map((service) => (
-            <div
-              key={service.id}
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, ease: "easeOut" }}
+                        key={service.id}
               className={`group flex items-center min-h-[72px] gap-6 border-b hover:border-[#E5e548] transition-colors duration-300`}
             >
               <span className="text-[14px] font-normal tracking-[1px] opacity-40 shrink-0 w-6 ">
@@ -30,7 +30,7 @@ const Studio = () => {
               >
                 {service.title}
               </h3>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
