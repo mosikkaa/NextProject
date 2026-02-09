@@ -17,8 +17,8 @@ const Textarea = () => {
         </h1>
       </div>
 
-      <div className="flex-row sm:flex items-center sm:gap-6 lg:w-4/9 2xl:w-1/2 xl:w-6/13 md:w-full 2xl:gap-14 xl:gap-2 lg:gap-14 md:gap-8 2xl:ml-48 xl:ml-39 lg:ml-39 md:ml-30 sm:ml-22 ml-[2px]">
-        <p className="2xl:w-7/14 xl:w-6/12 font-[Supreme] font-light text-white 2xl:text-[20px] md:text-[16px] sm:text-[16px] text-[12px] leading-[160%]">We are outstanding individuals <br /> who loves to combine art + design</p>
+      <div className="flex-row sm:flex items-center sm:gap-6 lg:w-5/9 2xl:w-1/2 xl:w-6/13 2xl:gap-14 xl:gap-2 lg:gap-14 md:gap-8 2xl:ml-48 xl:ml-39 lg:ml-39 md:ml-30 sm:ml-22 ml-[2px]">
+        <p className="2xl:w-7/14 xl:w-6/12  font-[Supreme] font-light text-white 2xl:text-[20px] md:text-[16px] sm:text-[16px] text-[12px] leading-[160%]">We are outstanding individuals <br /> who loves to combine art + design</p>
         <div className="2xl:h-[128px] 2xl:w-[128px] relative xl:h-[108px] xl:w-[108px] lg:w-[98px] lg:h-[98px] md:h-[90px] md:w-[90px] h-[80px] w-[80px] hidden sm:block ">
           <Image className="hidden sm:block" src="/Discover.svg" fill alt="Discover"/>
         </div>
