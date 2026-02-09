@@ -3,10 +3,9 @@ import Image from "next/image";
 import * as motion from "motion/react-client";
 import MenuButton from "@/app/components/atoms/MenuButton/MenuButton";
 import useHide from "@/app/hooks/useHide";
+import {MenuOptionsProps} from "@/app/types/types";
 
-
-
-const LeftMenu = ({isOpen,setIsOpen}:any) => {
+const LeftMenu = ({isOpen,setIsOpen}:MenuOptionsProps) => {
 
     const show:boolean = useHide()
 

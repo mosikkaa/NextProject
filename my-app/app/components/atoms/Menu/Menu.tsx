@@ -1,28 +1,26 @@
 import { motion } from "motion/react";
-import {
-  lineVariants,
-  itemVariants,
-  getMenuVariants,
-} from "@/app/utils/motionVariants/motionVariants";
+import {lineVariants, itemVariants, getMenuVariants,} from "@/app/utils/motionVariants/motionVariants";
+import {MenuProps} from "@/app/types/types";
 
-const Menu = ({ isOpen }: any) => {
+
+const Menu = ({ isOpen,scrollToSection, refs }: MenuProps) => {
   return (
     <motion.div initial="closed" animate={isOpen ? "open" : "closed"} variants={getMenuVariants()} transition={{ duration: 0.6, ease: "easeInOut" }} className={`w-full fixed z-99 flex items-center sm:items-center h-screen pt-12 sm:pt-0 pl-[9%] pr-[9%] sm:pl-28 sm:pr-28 xl:pl-32 xl:pr-21 bg-black`}>
       <div className="sm:flex-row flex-col flex gap-24 sm:gap-12 h-[100%] pt-24 pb-8 sm:pt-0 sm:pb-0  w-full items-center">
         <ul className="sm:w-6/13 md:w-5/9 lg:w-3/6 w-full">
-          <motion.li whileHover="show" initial="hidden" variants={itemVariants} className="text-white pl-0 sm:pl-[18%] relative opacity-100 font-[Supreme] font-bold text-[32px] sm:text-[34px] md:text-[40px]  lg:text-[50px] xl:text-[52px] 2xl:text-[60px] leading-[160%] tracking-[0px] uppercase align-middle  group  cursor-pointer">HOME
+          <motion.li onClick={() => scrollToSection(refs.homeRef)} whileHover="show" initial="hidden" variants={itemVariants} className="text-white pl-0 sm:pl-[18%] relative opacity-100 font-[Supreme] font-bold text-[32px] sm:text-[34px] md:text-[40px]  lg:text-[50px] xl:text-[52px] 2xl:text-[60px] leading-[160%] tracking-[0px] uppercase align-middle  group  cursor-pointer">HOME
             <motion.div variants={lineVariants} className="absolute group-hover:block hidden right-0 border-2 border-[#E5E548] w-full"></motion.div>
           </motion.li>
-          <motion.li whileHover="show" initial="hidden" variants={itemVariants} className="text-white pl-0 sm:pl-[18%] relative opacity-100 font-[Supreme] font-bold text-[32px] sm:text-[34px] md:text-[40px]  lg:text-[50px] xl:text-[52px] 2xl:text-[60px] leading-[160%] tracking-[0px] uppercase align-middle  group  cursor-pointer">WORKS
+          <motion.li onClick={() => scrollToSection(refs.latestProjectsRef)} whileHover="show" initial="hidden" variants={itemVariants} className="text-white pl-0 sm:pl-[18%] relative opacity-100 font-[Supreme] font-bold text-[32px] sm:text-[34px] md:text-[40px]  lg:text-[50px] xl:text-[52px] 2xl:text-[60px] leading-[160%] tracking-[0px] uppercase align-middle  group  cursor-pointer">WORKS
             <motion.div variants={lineVariants} className="absolute group-hover:block hidden right-0 border-2 border-[#E5E548] w-full"></motion.div>
           </motion.li>
-          <motion.li whileHover="show" initial="hidden" variants={itemVariants} className="text-white pl-0 sm:pl-[18%] relative opacity-100 font-[Supreme] font-bold text-[32px] sm:text-[34px] md:text-[40px]  lg:text-[50px] xl:text-[52px] 2xl:text-[60px] leading-[160%] tracking-[0px] uppercase align-middle  group  cursor-pointer">COMPANY
+          <motion.li onClick={() => scrollToSection(refs.studioRef)} whileHover="show" initial="hidden" variants={itemVariants} className="text-white pl-0 sm:pl-[18%] relative opacity-100 font-[Supreme] font-bold text-[32px] sm:text-[34px] md:text-[40px]  lg:text-[50px] xl:text-[52px] 2xl:text-[60px] leading-[160%] tracking-[0px] uppercase align-middle  group  cursor-pointer">COMPANY
             <motion.div variants={lineVariants} className="absolute group-hover:block hidden right-0 border-2 border-[#E5E548] w-full"></motion.div>
           </motion.li>
-          <motion.li whileHover="show" initial="hidden" variants={itemVariants} className="text-white pl-0 sm:pl-[18%] relative opacity-100 font-[Supreme] font-bold text-[32px] sm:text-[34px] md:text-[40px]  lg:text-[50px] xl:text-[52px] 2xl:text-[60px] leading-[160%] tracking-[0px] uppercase align-middle  group  cursor-pointer">THOUGHTS
+          <motion.li onClick={() => scrollToSection(refs.latestRef)} whileHover="show" initial="hidden" variants={itemVariants} className="text-white pl-0 sm:pl-[18%] relative opacity-100 font-[Supreme] font-bold text-[32px] sm:text-[34px] md:text-[40px]  lg:text-[50px] xl:text-[52px] 2xl:text-[60px] leading-[160%] tracking-[0px] uppercase align-middle  group  cursor-pointer">THOUGHTS
             <motion.div variants={lineVariants} className="absolute group-hover:block hidden right-0 border-2 border-[#E5E548] w-full"></motion.div>
           </motion.li>
-          <motion.li whileHover="show" initial="hidden" variants={itemVariants} className="text-white pl-0 sm:pl-[18%] relative opacity-100 font-[Supreme] font-bold text-[32px] sm:text-[34px] md:text-[40px]  lg:text-[50px] xl:text-[52px] 2xl:text-[60px] leading-[160%] tracking-[0px] uppercase align-middle  group  cursor-pointer">CONTACT
+          <motion.li onClick={() => scrollToSection(refs.ctaRef)} whileHover="show" initial="hidden" variants={itemVariants} className="text-white pl-0 sm:pl-[18%] relative opacity-100 font-[Supreme] font-bold text-[32px] sm:text-[34px] md:text-[40px]  lg:text-[50px] xl:text-[52px] 2xl:text-[60px] leading-[160%] tracking-[0px] uppercase align-middle  group  cursor-pointer">CONTACT
             <motion.div variants={lineVariants} className="absolute group-hover:block hidden right-0 border-2 border-[#E5E548] w-full"></motion.div>
           </motion.li>
         </ul>

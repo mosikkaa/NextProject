@@ -1,10 +1,11 @@
 import React from "react";
 import SectionTitle from "../../atoms/SectionTitle/SectionTitle";
 import { motion } from "motion/react";
+import {SectionProps} from "@/app/types/types";
 
-const Latest = () => {
+const Latest = ({sectionRef}:SectionProps) => {
   return (
-    <section className="bg-black max-w-[1440px] text-white pl-[9%] sm:pl-28 sm:pr-20 xl:pl-32 xl:pr-21 w-full flex flex-col font-supreme overflow-hidden">
+    <section ref={sectionRef} className="bg-black max-w-[1440px] text-white pl-[9%] sm:pl-28 sm:pr-20 xl:pl-32 xl:pr-21 w-full flex flex-col font-supreme overflow-hidden">
       <SectionTitle title="LATEST" subtitle="THOUGHTS" />
 
       <div className="pr-[9%] w-full">

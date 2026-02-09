@@ -3,9 +3,12 @@ import Textarea from "@/app/components/atoms/Textarea/Textarea";
 import Image from "next/image";
 import Video from "@/app/components/atoms/Video/Video";
 import { motion } from "framer-motion";
+import {LandProps} from "@/app/types/types";
 
-const Land = ({ scrollTo }: any) => {
-  const handleScroll = (): void => {
+
+const Land = ({ scrollTo,sectionRef }: LandProps) => {
+
+    const handleScroll = (): void => {
     scrollTo.current.scrollIntoView({
       behavior: "smooth",
       block: "start",
@@ -13,7 +16,7 @@ const Land = ({ scrollTo }: any) => {
   };
 
   return (
-    <section className="w-full relative z-16">
+    <section ref={sectionRef} className="w-full relative z-16">
       <div className="w-full relative z-16 h-[310px]  sm:h-screen  flex-shrink-0 items-center flex sm:relative bg-[#C4C4C4]">
         <div className="max-w-[1440px] w-full pl-[9%] pr-[9%] sm:pl-28 xl:pl-32 xl:pr-21 m-auto">
           <Textarea />

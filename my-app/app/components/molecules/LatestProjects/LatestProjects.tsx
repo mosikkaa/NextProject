@@ -11,9 +11,11 @@ import hikingGears from "../../../../public/hikingGears.jpg";
 import outdoor from "../../../../public/outdoor.jpg";
 import hikingGears2 from "../../../../public/hikingGears2.jpg";
 import outdoor2 from "../../../../public/outdoor2.jpg";
-import { useState } from "react";
+import {useState} from "react";
+import {SectionProps} from "@/app/types/types";
 
-const LatestProjects = ({ sectionRef }: any) => {
+
+const LatestProjects = ({ sectionRef }: SectionProps) => {
   const [showMore, setShowMore] = useState(false);
   const [page, setPage] = useState(0);
 

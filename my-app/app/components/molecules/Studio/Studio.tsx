@@ -1,6 +1,7 @@
-import React from "react";
+import React, {RefObject} from "react";
 import SectionTitle from "../../atoms/SectionTitle/SectionTitle";
 import { motion } from "motion/react";
+import {SectionProps} from "@/app/types/types";
 
 const services = [
   { id: "01", title: "WEBSITE" },
@@ -10,9 +11,10 @@ const services = [
   { id: "05", title: "BRAND STRATEGY" },
 ];
 
-const Studio = () => {
+
+const Studio = ({sectionRef}:SectionProps) => {
   return (
-    <section className="bg-black max-w-[1440px] mb-[76px] text-white w-full flex flex-col md:flex-row items-center justify-between gap-10 font-supreme pl-[9%] sm:pl-28 sm:pr-20 xl:pl-32 xl:pr-21">
+    <section ref={sectionRef} className="bg-black max-w-[1440px] mb-[76px] text-white w-full flex flex-col md:flex-row items-center justify-between gap-10 font-supreme pl-[9%] sm:pl-28 sm:pr-20 xl:pl-32 xl:pr-21">
       <div className="flex-1 w-full max-w-[770px]">
         {" "}
         <SectionTitle title="STUDIO" subtitle="SERVICES" />

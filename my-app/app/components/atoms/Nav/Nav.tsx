@@ -4,8 +4,9 @@ import * as motion from "motion/react-client";
 import { dayData } from "@/app/utils/dayData/dayData";
 import MenuButton from "@/app/components/atoms/MenuButton/MenuButton";
 import useHide from "@/app/hooks/useHide";
+import {MenuOptionsProps} from "@/app/types/types";
 
-const Nav = ({ isOpen, setIsOpen }: any) => {
+const Nav = ({ isOpen, setIsOpen }: MenuOptionsProps) => {
   const show: boolean = useHide();
   const weekday: string = dayData();
 
