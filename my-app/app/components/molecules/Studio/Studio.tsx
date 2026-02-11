@@ -19,7 +19,7 @@ const initialServices = [
 const Studio = ({ sectionRef }: SectionProps) => {
   const [servicesList, setServicesList] = useState(initialServices);
   const [activeImage, setActiveImage] = useState(servicesList[0].image);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const handleSave = (title: string, image: string) => {
     const nextId = (servicesList.length + 1).toString().padStart(2, "0");
@@ -76,7 +76,7 @@ const Studio = ({ sectionRef }: SectionProps) => {
       </div>
 
       {/* Right Content - View Works / Discover */}
-      <div className="md:relative md:flex hidden flex-1 items-center justify-center max-w-[290px] md:self-end">
+      <div className="md:relative md:flex hidden flex-1 items-center justify-center max-w-[290px] md:self-center">
         {/* Image / Mask Group (290x392) */}
         <div
           className="relative w-full aspect-[290/392] bg-[#626262] overflow-hidden"

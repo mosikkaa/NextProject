@@ -14,14 +14,15 @@ import outdoor2 from "../../../../public/outdoor2.jpg";
 import { useEffect, useState } from "react";
 import { SectionProps } from "@/app/types/types";
 import AddWork from "../../atoms/AddWork/AddWork";
+import {StaticImageData} from "next/image";
 
 const LatestProjects = ({ sectionRef }: SectionProps) => {
-  const [showMore, setShowMore] = useState(false);
-  const [page, setPage] = useState(0);
-  const [addWorkOpen, setAddWorkOpen] = useState(false)
+  const [showMore, setShowMore] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(0);
+  const [addWorkOpen, setAddWorkOpen] = useState<boolean>(false)
 
-  const defaultImg = architecture;
-  const projectsPerPage = 4;
+  const defaultImg:StaticImageData = architecture;
+  const projectsPerPage:number = 4;
 
   const allProjects = [
     {
