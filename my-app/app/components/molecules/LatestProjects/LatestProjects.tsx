@@ -120,17 +120,17 @@ const LatestProjects = ({ sectionRef }: SectionProps) => {
       </div>
 
       <div ref={sectionRef} className="w-full  ">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-30.25 tracking-wider [text-shadow:-1px_-1px_0_#666666,1px_-1px_0_#666666,-1px_1px_0_#666666,1px_1px_0_#666666,0_-1px_0_#666666,0_1px_0_#666666,-1px_0_0_#666666,1px_0_0_#666666] leading-[100%] sm:w-97.5 lg:w-130 font-bold text-[54px] lg:text-[64px]">
-          LATEST{" "}
-          <span className="text-shadow-none line-through decoration-3 text-[#E5E548] [-webkit-text-stroke:0px]">
-            <span className="text-black">sss</span>PROJECTS
-          </span>
-        </motion.div>
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, ease: "easeOut" }}  className="relative max-w-[425px]  w-full flex flex-col font-supreme leading-[1.1] md:leading-[1.6] overflow-hidden mb-30.25">
+              <h2 className="[text-shadow:-1px_-1px_0_#666666,1px_-1px_0_#666666,-1px_1px_0_#666666,1px_1px_0_#666666,0_-1px_0_#666666,0_1px_0_#666666,-1px_0_0_#666666,1px_0_0_#666666]  sm:text-[64px] text-[50px] font-bold text-black uppercase">
+                  Latest
+              </h2>
+              <div className="flex items-center relative z-10">
+                  <div className="w-full shrink-0 bg-[#e5e548] h-[2px] absolute z-10 " />
+                  <span className="sm:text-[64px] text-[48px] font-bold leading-none mdml-[159px] ml-[85px] sm:ml-[108px] text-[#E5E548] uppercase whitespace-nowrap w-full">
+                    Projects
+                  </span>
+              </div>
+          </motion.div>
 
         <div className="mb-6 xl:hidden flex gap-6 overflow-x-auto [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-zinc-900 [&::-webkit-scrollbar-thumb]:bg-white">
           {projects.map((p, i) => (<ProjectCard key={i} {...p} />))}

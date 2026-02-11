@@ -32,7 +32,7 @@ const Home = () => {
       <LatestProjects sectionRef={latestProjectsRef} />
       <Studio sectionRef={studioRef}/>
       <Latest sectionRef={latestRef}/>
-      <CtaSection sectionRef={ctaRef} />
+      <CtaSection sectionRef={ctaRef} scrollToSection={scrollToSection} refs={{homeRef,latestProjectsRef,studioRef,latestRef,ctaRef}}/>
     </div>
   );
 };
