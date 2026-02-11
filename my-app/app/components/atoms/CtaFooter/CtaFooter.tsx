@@ -1,7 +1,8 @@
 import { motion } from "motion/react"
 import FooterColumn from "../FooterColumn/FooterColumn"
+import {CtaProps} from "@/app/types/types";
 
-const CtaFooter = () => {
+const CtaFooter = ({scrollToSection,refs}:CtaProps) => {
   return (
     <motion.footer initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, ease: "easeOut" }}  className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
 
@@ -24,8 +25,19 @@ const CtaFooter = () => {
       </div>
 
       <div className="order-2 sm:order-4 lg:order-4 flex flex-wrap lg:flex-nowrap gap-[68px]">
-        <FooterColumn items={["HOME", "WORKS", "COMPANY", "THOUGHTS", "CONTACT"]}/>
-        <FooterColumn items={["Instagram", "Twitter", "LinkedIn", "Facebook"]}/>
+          <motion.ul initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, ease: "easeOut" }}  className="text-black text-[14px] flex flex-col font-supreme font-medium leading-[240%] tracking-[0.04em] uppercase">
+              <li className='cursor-pointer hover:scale-110 ease-in-out transition duration-200' onClick={() => scrollToSection(refs.homeRef)}>HOME</li>
+              <li className='cursor-pointer hover:scale-110 ease-in-out transition duration-200' onClick={() => scrollToSection(refs.latestProjectsRef)}>WORKS</li>
+              <li className='cursor-pointer hover:scale-110 ease-in-out transition duration-200' onClick={() => scrollToSection(refs.studioRef)}>COMPANY</li>
+              <li className='cursor-pointer hover:scale-110 ease-in-out transition duration-200' onClick={() => scrollToSection(refs.latestRef)}>THOUGHTS</li>
+              <li className='cursor-pointer hover:scale-110 ease-in-out transition duration-200' onClick={() => scrollToSection(refs.ctaRef)}>CONTACT</li>
+          </motion.ul>
+          <motion.ul initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, ease: "easeOut" }}  className="text-black text-[14px] flex flex-col font-supreme font-normal text-[14px] leading-[240%] tracking-[1px]">
+              <li className='cursor-pointer hover:scale-110 ease-in-out transition duration-200'>Instagram</li>
+              <li className='cursor-pointer hover:scale-110 ease-in-out transition duration-200'>Twitter</li>
+              <li className='cursor-pointer hover:scale-110 ease-in-out transition duration-200'>LinkedIn</li>
+              <li className='cursor-pointer hover:scale-110 ease-in-out transition duration-200'>Facebook</li>
+          </motion.ul>
       </div>
 
       <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, ease: "easeOut" }}  className="order-6 sm:col-span-2 lg:col-span-5 mt-10 text-[12px] flex flex-wrap gap-6">

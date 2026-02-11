@@ -14,7 +14,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title, subtitle }) => {
       </h2>
       <div className="flex items-center relative z-10">
         <div className="w-full shrink-0 bg-[#e5e548] h-[2px] absolute z-10 " />
-        <span className="md:text-[64px] text-[56px] font-bold leading-none mdml-[159px] ml-[96px] text-[#E5E548] uppercase whitespace-nowrap w-full">
+        <span className="sm:text-[64px] text-[48px] font-bold leading-none mdml-[159px] ml-[96px] text-[#E5E548] uppercase whitespace-nowrap w-full">
           {subtitle}
         </span>
       </div>

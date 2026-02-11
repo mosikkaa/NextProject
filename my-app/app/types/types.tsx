@@ -8,6 +8,28 @@ export interface LandProps{
 export interface SectionProps {
     sectionRef:RefObject<null>;
 }
+export interface CtaProps {
+    scrollToSection:any;
+    refs: {
+        homeRef:RefObject<null>;
+        latestProjectsRef: RefObject<null>;
+        studioRef: RefObject<null>;
+        latestRef: RefObject<null>;
+        ctaRef: RefObject<null>;
+    };
+}
+
+export interface CtaSectionProps{
+    sectionRef:RefObject<null>;
+    scrollToSection:(elementRef: RefObject<null>) => void;
+    refs: {
+        homeRef:RefObject<null>;
+        latestProjectsRef: RefObject<null>;
+        studioRef: RefObject<null>;
+        latestRef: RefObject<null>;
+        ctaRef: RefObject<null>;
+    };
+}
 
 export interface MenuOptionsProps {
     isOpen: boolean;
