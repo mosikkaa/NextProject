@@ -52,13 +52,13 @@ const AddWork = ({ onClose, onAddProject, nextNum }: AddWorkProps) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
         >
-            <div className="w-150 h-150 border-2 border-gray-300 rounded-[40px] bg-black relative" onClick={(e) => e.stopPropagation()}>
-                <button onClick={onClose} className='p-6 cursor-pointer absolute right-0'>
+            <div className="w-3/4 md:w-150 h-3/4 border-2 py-3 border-gray-300 rounded-[40px] bg-black relative" onClick={(e) => e.stopPropagation()}>
+                <button onClick={onClose} className='p-6 cursor-pointer absolute right-2'>
                     <Image src={closeBtn} alt="close" width={30} height={30} />
                 </button>
-                <div className='w-150 h-150 flex flex-col items-center justify-center gap-10'>
-                    <h1 className='text-white text-[30px]'>Add New Project</h1>
-                    <form onSubmit={handleSubmit} className='flex flex-col gap-5 w-75'>
+                <div className='w-full md:w-150 h-full flex flex-col items-center justify-center gap-10'>
+                    <h1 className='text-white text-[24px]'>Add New Project</h1>
+                    <form onSubmit={handleSubmit} className='flex flex-col gap-4 w-3/4 md:w-75'>
                         <input type="text" name="title" placeholder='Title' value={form.title} onChange={handleChange} className='border border-gray-400 text-white p-3 rounded-[20px] outline-none' />
                         <input type="text" name="description" placeholder='Description' value={form.description} onChange={handleChange} className='border border-gray-400 text-white p-3 rounded-[20px] outline-none' />
                         <input type="text" name="type" placeholder='Type' value={form.type} onChange={handleChange} className='border border-gray-400 text-white p-3 rounded-[20px] outline-none' />

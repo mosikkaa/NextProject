@@ -9,7 +9,7 @@ import { SectionProps } from "@/app/types/types";
 const initialStories = [
   {
     id: "01",
-    image: "/rebrending.png",
+    image: "/rebrending.jpg",
     title: "RAUNG PACK REBRANDING, BEYOND THE OFFICE, OUT OF THE LANDFILL",
     description:
       "Our collaborations with latest outdoors gear for their website.",
@@ -19,7 +19,7 @@ const initialStories = [
   },
   {
     id: "02",
-    image: "/rebrending2.png",
+    image: "/rebrending2.jpg",
     title: "INNOVATIVE DESIGN SOLUTIONS FOR MODERN SPACES",
     description:
       "Exploring new horizons in architectural visualization and brand identity.",
@@ -29,7 +29,7 @@ const initialStories = [
   },
   {
     id: "03",
-    image: "/rebrending3.png",
+    image: "/rebrending3.jpg",
     title: "FUTURE OF DIGITAL INTERACTION AND MOTION",
     description:
       "Creating seamless experiences through motion graphics and interactive design.",
@@ -226,7 +226,7 @@ const Latest = ({ sectionRef }: SectionProps) => {
               onClick={() => setIsAddModalOpen(true)}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="w-12 h-12 rounded-full border border-dashed border-white/40 flex items-center justify-center text-2xl font-light hover:border-[#E5E548] hover:text-[#E5E548] transition-colors"
+              className="w-12 h-12 rounded-full border mb-[65px] sm:mb-0 border-dashed border-white/40 flex items-center justify-center text-2xl font-light hover:border-[#E5E548] hover:text-[#E5E548] transition-colors"
             >
               +
             </motion.button>
