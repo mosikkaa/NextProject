@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import SectionTitle from "../../atoms/SectionTitle/SectionTitle";
@@ -6,7 +6,18 @@ import LatestBtn from "../../atoms/LatestBtn/LatestBtn";
 import LatestAddForm from "../../atoms/LatestAddForm/LatestAddForm";
 import { SectionProps } from "@/app/types/types";
 
-const initialStories = [
+interface Story {
+  id: string;
+  image: string;
+  title: string;
+  description: string;
+  date: string;
+  categories: string[];
+  subCategory: string;
+  isCustom?: boolean;
+}
+
+const initialStories: Story[] = [
   {
     id: "01",
     image: "/rebrending.jpg",
@@ -40,11 +51,19 @@ const initialStories = [
 ];
 
 const Latest = ({ sectionRef }: SectionProps) => {
-  const [stories, setStories] = useState(initialStories);
+  const [stories, setStories] = useState<Story[]>(initialStories);
   const [activeIndex, setActiveIndex] = useState(0);
   const [showAll, setShowAll] = useState(false);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const currentStory = stories[activeIndex];
+  const currentStory = stories[activeIndex] || stories[0];
+
+  useEffect(() => {
+    const savedStories = localStorage.getItem("latest_stories");
+    if (savedStories) {
+      const customStories = JSON.parse(savedStories);
+      setStories([...initialStories, ...customStories]);
+    }
+  }, []);
 
   const handleSaveStory = (data: {
     title: string;
@@ -53,14 +72,34 @@ const Latest = ({ sectionRef }: SectionProps) => {
     image: string;
   }) => {
     const nextId = (stories.length + 1).toString().padStart(2, "0");
-    const newStory = {
+    const newStory: Story = {
       ...data,
       id: nextId,
       categories: ["NEW"],
       subCategory: "PROJECT",
+      isCustom: true,
     };
-    setStories([...stories, newStory]);
+
+    const updatedStories = [...stories, newStory];
+    setStories(updatedStories);
+
+    const customOnly = updatedStories.filter((s) => s.isCustom);
+    localStorage.setItem("latest_stories", JSON.stringify(customOnly));
+
     setIsAddModalOpen(false);
+  };
+
+  const handleDeleteStory = (e: React.MouseEvent, id: string) => {
+    e.stopPropagation();
+    const updatedStories = stories.filter((s) => s.id !== id);
+    setStories(updatedStories);
+
+    const customOnly = updatedStories.filter((s) => s.isCustom);
+    localStorage.setItem("latest_stories", JSON.stringify(customOnly));
+
+    if (activeIndex >= updatedStories.length) {
+      setActiveIndex(Math.max(0, updatedStories.length - 1));
+    }
   };
 
   return (
@@ -111,6 +150,16 @@ const Latest = ({ sectionRef }: SectionProps) => {
                       />
                     </motion.div>
                   </AnimatePresence>
+
+                  {currentStory.isCustom && (
+                    <button
+                      onClick={(e) => handleDeleteStory(e, currentStory.id)}
+                      className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-black/50 border border-white/20 flex items-center justify-center hover:bg-[#E5E548] hover:text-black transition-colors"
+                    >
+                      ✕
+                    </button>
+                  )}
+
                   <div className="absolute inset-0 w-full md:w-[440px] h-[408px] bg-black opacity-20" />
                   <AnimatePresence mode="wait">
                     <motion.p
@@ -169,7 +218,7 @@ const Latest = ({ sectionRef }: SectionProps) => {
               {stories.map((story) => (
                 <motion.div
                   key={story.id}
-                  className="flex flex-col gap-6 group cursor-pointer shrink-0 w-[85%] md:w-[440px] snap-center"
+                  className="flex flex-col gap-6 group cursor-pointer shrink-0 w-[85%] md:w-[440px] snap-center relative"
                 >
                   <div
                     className="relative w-full aspect-[440/408] bg-[#626262] overflow-hidden"
@@ -184,6 +233,16 @@ const Latest = ({ sectionRef }: SectionProps) => {
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
                     />
+
+                    {story.isCustom && (
+                      <button
+                        onClick={(e) => handleDeleteStory(e, story.id)}
+                        className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-black/50 border border-white/20 flex items-center justify-center hover:bg-[#E5E548] hover:text-black transition-colors"
+                      >
+                        ✕
+                      </button>
+                    )}
+
                     <div className="absolute inset-0 bg-black/20" />
                     <p className="absolute bottom-2 left-2 text-transparent font-normal text-[80px] rotate-270 [-webkit-text-stroke:1px_#dadada] opacity-20 group-hover:opacity-40 transition-opacity">
                       {story.id}
@@ -218,7 +277,7 @@ const Latest = ({ sectionRef }: SectionProps) => {
           <div className="flex items-center gap-4 w-full md:w-auto">
             <LatestBtn
               onClick={() => setShowAll(!showAll)}
-              text={showAll ? "SHOW STORIES" : "MORE STORIES"}
+              text={showAll ? "LESS STORIES" : "MORE STORIES"}
             />
 
             {/* Add Story Button (+) */}
