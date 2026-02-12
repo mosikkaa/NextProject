@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
+import { compressImage } from "@/app/utils/imageUtils";
 
 interface LatestAddFormProps {
   isOpen: boolean;
@@ -22,8 +23,22 @@ const LatestAddForm = ({ isOpen, onClose, onSave }: LatestAddFormProps) => {
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      const imageUrl = URL.createObjectURL(e.target.files[0]);
-      setImage(imageUrl);
+      const file = e.target.files[0];
+      const reader = new FileReader();
+
+      reader.onloadend = async () => {
+        const base64 = reader.result as string;
+        try {
+          // Compress image to max 800px width/height and 0.7 quality
+          const compressed = await compressImage(base64, 800, 800, 0.7);
+          setImage(compressed);
+        } catch (error) {
+          console.error("Image compression failed:", error);
+          setImage(base64); // Fallback to original if compression fails
+        }
+      };
+
+      reader.readAsDataURL(file);
     }
   };
 

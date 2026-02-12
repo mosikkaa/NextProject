@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
+import { compressImage } from "@/app/utils/imageUtils";
 
 interface StudioAddFormProps {
   isOpen: boolean;
@@ -15,8 +16,21 @@ const StudioAddForm = ({ isOpen, onClose, onSave }: StudioAddFormProps) => {
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      const imageUrl = URL.createObjectURL(e.target.files[0]);
-      setNewImage(imageUrl);
+      const file = e.target.files[0];
+      const reader = new FileReader();
+
+      reader.onloadend = async () => {
+        const base64 = reader.result as string;
+        try {
+          const compressed = await compressImage(base64, 800, 800, 0.7);
+          setNewImage(compressed);
+        } catch (error) {
+          console.error("Image compression failed:", error);
+          setNewImage(base64);
+        }
+      };
+
+      reader.readAsDataURL(file);
     }
   };
 
