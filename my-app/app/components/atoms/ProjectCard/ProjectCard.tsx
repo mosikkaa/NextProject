@@ -9,7 +9,7 @@ interface ProjectCardProps {
   description: string;
   type: string;
   section: string;
-  img: StaticImageData;
+  img: StaticImageData | string,
   num: string;
 }
 
@@ -22,20 +22,14 @@ const ProjectCard = ({
   num,
 }: ProjectCardProps) => {
   return (
-    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, ease: "easeOut" }}  className="w-67.25 lg:w-137.5 mb-8 lg:mb-30 cursor-pointer group">
+    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, ease: "easeOut" }} className="w-67.25 lg:w-137.5 mb-8 lg:mb-30 cursor-pointer group">
       <div className="w-67.25 lg:w-137.5 h-94 lg:h-102 mb-8 relative overflow-hidden">
-        <Image
-          src={cardTriangle}
-          alt="card triangle"
-          width={70}
-          height={70}
-          className="absolute z-2 "
-        />
-        <Image
-          src={img}
-          alt="card image"
-          className="absolute z-1 object-cover h-94 lg:h-full"
-        />
+        <Image src={cardTriangle} alt="card triangle" width={70} height={70} className="absolute z-2 " />
+        {typeof img === "string" ? (<img src={img} alt={title} className="absolute inset-0 w-full h-full object-cover z-1" />
+        ) : (
+          <Image src={img} alt={title} fill className="object-cover z-1" />
+        )}
+
         <p className="w-49.75 absolute z-2 text-transparent font-normal text-[168px] rotate-270 [-webkit-text-stroke:1px_#dadada] -bottom-1.75 -left-0.5">
           {num}
         </p>
