@@ -16,9 +16,9 @@ import { SectionProps } from "@/app/types/types";
 import AddWork from "../../atoms/AddWork/AddWork";
 
 const LatestProjects = ({ sectionRef }: SectionProps) => {
-  const [showMore, setShowMore] = useState<boolean>(false);
-  const [page, setPage] = useState<number>(0);
-  const [addWorkOpen, setAddWorkOpen] = useState<boolean>(false)
+  const [showMore, setShowMore] = useState(false);
+  const [page, setPage] = useState(0);
+  const [addWorkOpen, setAddWorkOpen] = useState(false)
 
   const projectsPerPage: number = 4;
 
@@ -105,10 +105,7 @@ const LatestProjects = ({ sectionRef }: SectionProps) => {
     const newProjects = [...projects, project];
     setProjects(newProjects);
     localStorage.setItem("projects", JSON.stringify(newProjects));
-  };
-
-  // Determine projects to show--------------------------------------------------------------------
-  const displayedProjects = showMore ? projects : paginatedProjects;
+  }
 
   return (
     <div className="select-none max-w-360 bg-black flex flex-col items-start lg:items-center justify-center gap-20 w-full pl-[9%] lg:mb-29 mb-12 sm:pl-28  xl:pl-32 xl:pr-21">
@@ -168,14 +165,20 @@ const LatestProjects = ({ sectionRef }: SectionProps) => {
             )}
           </motion.div>
         </div>
-        <motion.button
-          onClick={() => setAddWorkOpen(true)}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className="w-14 h-14 rounded-full border border-dashed border-white/40 cursor-pointer text-white flex items-center justify-center text-2xl font-light hover:border-[#E5E548] hover:text-[#E5E548] transition-colors"
-        >
-          +
-        </motion.button>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}>
+          <motion.button
+            onClick={() => setAddWorkOpen(true)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="w-14 h-14 rounded-full border border-dashed border-white/40 cursor-pointer text-white flex items-center justify-center text-2xl font-light hover:border-[#E5E548] hover:text-[#E5E548] transition-colors"
+          >
+            +
+          </motion.button>
+        </motion.div>
       </div >
       <AnimatePresence>
         {addWorkOpen && (<AddWork onClose={() => setAddWorkOpen(false)} onAddProject={handleAddProject} nextNum={projects.length + 1} />)}
