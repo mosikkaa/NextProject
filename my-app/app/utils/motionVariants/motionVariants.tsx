@@ -13,5 +13,5 @@ export const itemVariants: Variants = {
 
 export const getMenuVariants = () => {
     const isMobile:boolean = useMobile(640)
-    return {open: {x: 0, y: 0, opacity: 0.96,}, closed: isMobile ? { y: '-100%', x: 0, opacity: 0 } : { x: '-100%', y: 0, opacity: 0 },};
+    return {open: {x: 0, y: 0, opacity: 0.96,}, closed: isMobile ? { y: '-200%', x: 0, opacity: 0 } : { x: '-100%', y: 0, opacity: 0 },};
 };
