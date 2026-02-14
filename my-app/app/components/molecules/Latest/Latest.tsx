@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import {useState, useEffect, useRef} from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import SectionTitle from "../../atoms/SectionTitle/SectionTitle";
@@ -109,7 +109,7 @@ const Latest = ({ sectionRef }: SectionProps) => {
     >
       <SectionTitle title="LATEST" subtitle="THOUGHTS" />
 
-      <div className="pr-[9%] w-full">
+      <div className="pr-[9%] sm:pr-0 w-full">
         <AnimatePresence mode="wait">
           {!showAll ? (
             <motion.div
@@ -183,7 +183,7 @@ const Latest = ({ sectionRef }: SectionProps) => {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -30 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="flex flex-col gap-4 max-w-[621px] pb-5"
+                    className="flex flex-col gap-4 max-w-[621px] pb-5 pr-[7%]"
                   >
                     <h3 className="text-[24px] lg:text-[32px] font-medium tracking-[2px] leading-[120%] text-[#E5E548] uppercase">
                       {currentStory.title}
@@ -274,7 +274,7 @@ const Latest = ({ sectionRef }: SectionProps) => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex justify-between items-center pb-0 md:pb-[116px] w-full max-w-[1210px] gap-4"
         >
-          <div className="flex items-center gap-4 w-full md:w-auto">
+          <div className="flex items-start gap-4 pt-10 w-full md:w-auto">
             <LatestBtn
               onClick={() => setShowAll(!showAll)}
               text={showAll ? "LESS STORIES" : "MORE STORIES"}
